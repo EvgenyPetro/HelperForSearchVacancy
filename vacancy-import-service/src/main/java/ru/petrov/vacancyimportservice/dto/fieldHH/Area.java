@@ -1,10 +1,12 @@
 package ru.petrov.vacancyimportservice.dto.fieldHH;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.ToString;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+//@Data
+@ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "id",
@@ -19,47 +21,8 @@ public class Area {
     private String name;
     @JsonProperty("url")
     private String url;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<>();
 
-    @JsonProperty("id")
-    public String getId() {
-        return id;
-    }
-
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @JsonProperty("name")
-    public String getName() {
-        return name;
-    }
-
-    @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @JsonProperty("url")
-    public String getUrl() {
-        return url;
-    }
-
-    @JsonProperty("url")
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 
 }
+
+

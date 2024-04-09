@@ -1,9 +1,9 @@
-package ru.petrov.vacancyimportservice.dto;
+package ru.petrov.vacancyimportservice.dto.fieldHH;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.ToString;
-import ru.petrov.vacancyimportservice.dto.fieldHH.*;
 
 
 @Data
@@ -21,7 +21,6 @@ public class Vacancy {
     @JsonProperty("type")
     private Type type;
     @JsonProperty("published_at")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private String publishedAt;
     @JsonProperty("created_at")
     private String createdAt;

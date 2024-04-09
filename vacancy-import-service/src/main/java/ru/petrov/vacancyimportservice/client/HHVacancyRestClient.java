@@ -1,13 +1,11 @@
 package ru.petrov.vacancyimportservice.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestClient;
 import ru.petrov.vacancyimportservice.dto.HHPayloadDto;
-import ru.petrov.vacancyimportservice.dto.Vacancy;
+import ru.petrov.vacancyimportservice.dto.fieldHH.Vacancy;
 
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,11 +22,10 @@ public class HHVacancyRestClient implements VacancyRestClient {
 
         var result = restClient
                 .get()
-                .uri("/vacancies?text=java")
+                .uri("/vacancies?text=Java")
                 .retrieve()
 
                 .body(HHPayloadDto.class);
-        System.out.println(result.getItems().get(1));
-        return Collections.emptyList();
+        return result.getVacancies();
     }
 }

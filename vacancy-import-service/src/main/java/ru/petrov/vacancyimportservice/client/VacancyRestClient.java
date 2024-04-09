@@ -1,6 +1,6 @@
 package ru.petrov.vacancyimportservice.client;
 
-import ru.petrov.vacancyimportservice.dto.Vacancy;
+import ru.petrov.vacancyimportservice.dto.fieldHH.Vacancy;
 
 import java.util.List;
 
