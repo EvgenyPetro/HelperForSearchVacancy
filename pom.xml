@@ -13,6 +13,7 @@
 
     <modules>
         <module>vacancy-import-service</module>
+        <module>vacancy-storage-service</module>
     </modules>
 
     <properties>

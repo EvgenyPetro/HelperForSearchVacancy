@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+kafka:
+  topic: "headhunterVacancy"
+
+spring:
+  kafka:
+    bootstrap-servers: "localhost:29092"
+    consumer:
+      client-id: "vacancy-consumer"
+      group-id: "vacancy-group"
+      auto-offset-reset: earliest

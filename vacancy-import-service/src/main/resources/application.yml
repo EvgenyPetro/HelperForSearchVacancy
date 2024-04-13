@@ -1,3 +1,10 @@
 api:
   hh: https://api.hh.ru
 
+kafka:
+  topic: "headhunterVacancy"
+
+spring:
+  kafka:
+    bootstrap-servers: 'localhost:29092'
+    client-id: "vacancy-producer"
