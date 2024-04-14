@@ -14,11 +14,16 @@ import java.util.List;
 @Slf4j
 public class KafkaListeners {
 
+    private final VacancyService vacancyService;
 
     @KafkaListener(topics = "headhunterVacancy", containerFactory = "listenerContainerFactory")
     void listen(@Payload List<Vacancy> data) {
-        log.info("values, values.size:{}", data.size());
-        System.out.println(data);
+        data.stream()
+                .forEach(vacancy -> {
+
+                    log.info("values, values.size:{}", data.size());
+                    vacancyService.save(vacancy);
+                });
     }
 
 }

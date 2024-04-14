@@ -18,11 +18,11 @@ public class HHVacancyRestClient implements VacancyRestClient {
     private final RestClient restClient;
 
     @Override
-    public List<Vacancy> getVacancy() {
+    public List<Vacancy> getVacancy(String lang) {
 
         var result = restClient
                 .get()
-                .uri("/vacancies?text=Java")
+                .uri("/vacancies?text={lang}", lang)
                 .retrieve()
 
                 .body(HHPayloadDto.class);

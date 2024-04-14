@@ -18,18 +18,12 @@ import java.util.List;
 public class TestController {
 
     private final VacancyRestClient client;
-    private final NewTopic topic;
-    private final KafkaTemplate<String, Vacancy> kafkaTemplate;
+
 
     @GetMapping("/test")
     public List<Vacancy> getPayloadDtoList() {
 
-        List<Vacancy> vacancy = client.getVacancy();
-        for (int i = 0; i < 10; i++) {
 
-            kafkaTemplate.send(topic.name(), vacancy.get(i));
-            log.info("send {}", vacancy.get(i).getId());
-        }
         return Collections.emptyList();
     }
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface VacancyRestClient {
 
-    List<Vacancy> getVacancy();
+    List<Vacancy> getVacancy(String lang);
 }

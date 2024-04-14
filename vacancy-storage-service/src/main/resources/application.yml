@@ -11,3 +11,7 @@ spring:
       client-id: "vacancy-consumer"
       group-id: "vacancy-group"
       auto-offset-reset: earliest
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/Vacancy
