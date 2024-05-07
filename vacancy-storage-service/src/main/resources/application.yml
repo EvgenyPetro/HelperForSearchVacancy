@@ -2,14 +2,16 @@ server:
   port: 8081
 
 kafka:
-  topic: "headhunterVacancy"
+  topic:
+    consume: "headhunterVacancyStorage"
+    produce: "headhunterVacancyNotification"
 
 spring:
   kafka:
     bootstrap-servers: "localhost:29092"
     consumer:
-      client-id: "vacancy-consumer"
-      group-id: "vacancy-group"
+      client-id: "storage-vacancy-consumer"
+      group-id: "storage-vacancy-group"
       auto-offset-reset: earliest
 
   data:

@@ -1,4 +1,4 @@
-package ru.petrov.vacancystorageservice.config.kafka;
+package ru.petrov.notificationservice.config.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
-import ru.petrov.vacancystorageservice.entity.Vacancy;
+import ru.petrov.notificationservice.dto.fieldHH.Vacancy;
 
 import java.util.Map;
 
@@ -31,7 +31,7 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 2);
         props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 3000);
-        props.put(TYPE_MAPPINGS, "ru.petrov.vacancyimportservice.dto.fieldHH.Vacancy:ru.petrov.vacancystorageservice.entity.Vacancy");
+        props.put(TYPE_MAPPINGS, "ru.petrov.vacancystorageservice.entity.Vacancy:ru.petrov.notificationservice.dto.fieldHH.Vacancy");
 
         DefaultKafkaConsumerFactory<String, Vacancy> kafkaConsumerFactory = new DefaultKafkaConsumerFactory<>(props);
         kafkaConsumerFactory.setValueDeserializer(new JsonDeserializer<>(objectMapper));
@@ -44,7 +44,6 @@ public class KafkaConsumerConfig {
         ConcurrentKafkaListenerContainerFactory<String, Vacancy> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
         factory.setBatchListener(true);
-//
         return factory;
     }
 }

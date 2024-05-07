@@ -39,5 +39,7 @@ public class Vacancy {
     private Experience experience;
     @JsonProperty("employment")
     private Employment employment;
+    @JsonProperty("lang")
+    private String lang;
 
 }

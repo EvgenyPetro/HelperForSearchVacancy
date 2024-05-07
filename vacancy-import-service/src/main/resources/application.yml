@@ -2,7 +2,7 @@ api:
   hh: https://api.hh.ru
 
 kafka:
-  topic: "headhunterVacancy"
+  topic: "headhunterVacancyStorage"
 
 spring:
   kafka:

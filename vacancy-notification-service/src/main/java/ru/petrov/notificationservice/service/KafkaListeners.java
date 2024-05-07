@@ -1,11 +1,11 @@
-package ru.petrov.vacancystorageservice.service;
+package ru.petrov.notificationservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
-import ru.petrov.vacancystorageservice.entity.Vacancy;
+import ru.petrov.notificationservice.dto.fieldHH.Vacancy;
 
 import java.util.List;
 
@@ -14,14 +14,14 @@ import java.util.List;
 @Slf4j
 public class KafkaListeners {
 
-    private final VacancyService vacancyService;
+    private final CustomerService service;
 
-    @KafkaListener(topics = "headhunterVacancyStorage", containerFactory = "listenerContainerFactory")
+    @KafkaListener(topics = "headhunterVacancyNotification", containerFactory = "listenerContainerFactory")
     void listen(@Payload List<Vacancy> data) {
         data.stream()
                 .forEach(vacancy -> {
                     log.info("values, values.size:{}", data.size());
-                    vacancyService.save(vacancy);
+                    service.getSubscribes(vacancy);
                 });
     }
 

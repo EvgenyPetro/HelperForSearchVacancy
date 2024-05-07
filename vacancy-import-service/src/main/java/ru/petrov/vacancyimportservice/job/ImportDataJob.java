@@ -32,6 +32,7 @@ public class ImportDataJob {
         for (String lang : LANGUAGES) {
             List<Vacancy> vacancies = vacancyRestClient.getVacancy(lang);
             for (Vacancy vacancy : vacancies) {
+                vacancy.setLang(lang);
                 kafkaTemplate.send(topic.name(), vacancy)
                         .whenComplete((res, ex) -> {
                             if (ex == null) {

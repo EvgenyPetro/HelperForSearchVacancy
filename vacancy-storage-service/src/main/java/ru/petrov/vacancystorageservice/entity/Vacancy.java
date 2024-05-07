@@ -29,4 +29,5 @@ public class Vacancy {
     private Snippet snippet;
     private Experience experience;
     private Employment employment;
+    private String lang;
 }
